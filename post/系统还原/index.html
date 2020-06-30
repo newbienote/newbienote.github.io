@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>系统还原 | Newbie Note</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1593524499938">
+<link rel="shortcut icon" href="/favicon.ico?v=1593532709378">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -65,7 +65,7 @@
           
         </div>
         
-          <p class="subtitle">精于心，简于形</p>
+          <p class="subtitle">业精于勤，行成于思</p>
         
       </div>
       <nav class="site-nav" id="site_nav">
@@ -177,216 +177,6 @@
         
 
 <div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-      <div class="sidebar-body gemini" id="sidebar_body">
-        
-          
-            <div style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E4%BA%8C-u%E7%9B%98pe">二、U盘PE</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
-          
-        
-      </div>
-    </div>
   
 </div>
 <script>
@@ -503,27 +293,36 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>127<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>106<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>一、系统镜像文件</p>
+              <figure data-type="image" tabindex="1"><img src="https://newbienote.github.io//post-images/1593532654639.jpg" alt="" loading="lazy"></figure>
+<ol>
+<li>系统镜像文件</li>
+</ol>
 <p>镜像文件后缀名 ：ISO、WIM、ESD、GHO，下载镜像文件后校验文件</p>
-<p>1️⃣微软官方windows镜像文件</p>
-<p>https://tb.rg-adguard.net/public.php?lang=zh-CN</p>
-<p>https://msdn.itellyou.cn/</p>
-<p>https://next.itellyou.cn/</p>
-<p>2️⃣ 第三方封装镜像文件</p>
+<ul>
+<li>微软官方windows镜像文件</li>
+</ul>
+<p><a href="https://tb.rg-adguard.net/public.php?lang=zh-CN">https://tb.rg-adguard.net/public.php?lang=zh-CN</a></p>
+<p><a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
+<p><a href="https://next.itellyou.cn/">https://next.itellyou.cn/</a></p>
+<ul>
+<li>第三方封装镜像文件</li>
+</ul>
 <p>http://iwin10.net/index.html</p>
 <p>http://www.newxitong.com/</p>
-<p>3️⃣本地系统备份文件</p>
-<h5 id="二-u盘pe">二、U盘PE</h5>
+<ul>
+<li>本地系统备份文件</li>
+</ul>
+<ol start="2">
+<li>U盘PE</li>
+</ol>
 <p>建议8G以上U盘，注意数据备份!!!</p>
-<p>推荐PE软件:</p>
-<p>wepe：http://www.wepe.com.cn/download.html</p>
-<p>优启通;https://www.itsk.com/forum.php?mod=viewthread&amp;tid=404842</p>
+<p>推荐PE软件:<a href="http://www.wepe.com.cn/download.html">wepe</a> 或者 <a href="https://www.itsk.com/forum.php?mod=viewthread&amp;tid=404842">优启通</a></p>
 
             </div>
             
@@ -1555,21 +1354,30 @@
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://newbienote.github.io/post/系统还原/"" data-c="
-          &lt;p&gt;一、系统镜像文件&lt;/p&gt;
+          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://newbienote.github.io//post-images/1593532654639.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ol&gt;
+&lt;li&gt;系统镜像文件&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;镜像文件后缀名 ：ISO、WIM、ESD、GHO，下载镜像文件后校验文件&lt;/p&gt;
-&lt;p&gt;1️⃣微软官方windows镜像文件&lt;/p&gt;
-&lt;p&gt;https://tb.rg-adguard.net/public.php?lang=zh-CN&lt;/p&gt;
-&lt;p&gt;https://msdn.itellyou.cn/&lt;/p&gt;
-&lt;p&gt;https://next.itellyou.cn/&lt;/p&gt;
-&lt;p&gt;2️⃣ 第三方封装镜像文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;微软官方windows镜像文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://tb.rg-adguard.net/public.php?lang=zh-CN&#34;&gt;https://tb.rg-adguard.net/public.php?lang=zh-CN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://msdn.itellyou.cn/&#34;&gt;https://msdn.itellyou.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://next.itellyou.cn/&#34;&gt;https://next.itellyou.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第三方封装镜像文件&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;http://iwin10.net/index.html&lt;/p&gt;
 &lt;p&gt;http://www.newxitong.com/&lt;/p&gt;
-&lt;p&gt;3️⃣本地系统备份文件&lt;/p&gt;
-&lt;h5 id=&#34;二-u盘pe&#34;&gt;二、U盘PE&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;本地系统备份文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;U盘PE&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;建议8G以上U盘，注意数据备份!!!&lt;/p&gt;
-&lt;p&gt;推荐PE软件:&lt;/p&gt;
-&lt;p&gt;wepe：http://www.wepe.com.cn/download.html&lt;/p&gt;
-&lt;p&gt;优启通;https://www.itsk.com/forum.php?mod=viewthread&amp;amp;tid=404842&lt;/p&gt;
+&lt;p&gt;推荐PE软件:&lt;a href=&#34;http://www.wepe.com.cn/download.html&#34;&gt;wepe&lt;/a&gt; 或者 &lt;a href=&#34;https://www.itsk.com/forum.php?mod=viewthread&amp;amp;tid=404842&#34;&gt;优启通&lt;/a&gt;&lt;/p&gt;
 ">系统还原</a>
       </div>
       
@@ -1854,7 +1662,7 @@
 </script>
 
 
-<script src="/media/js/mouse/peace.js"></script>
+<script src="/media/js/mouse/love.js"></script>
 
 
 </html>
