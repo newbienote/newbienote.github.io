@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://newbienote.com</id>
     <title>Newbie Note</title>
-    <updated>2020-07-20T12:46:29.404Z</updated>
+    <updated>2020-07-20T12:48:20.122Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://newbienote.com"/>
     <link rel="self" href="https://newbienote.com/atom.xml"/>
