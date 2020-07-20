@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://newbienote.github.io/</id>
     <title>Newbie Note</title>
-    <updated>2020-07-01T05:26:43.313Z</updated>
+    <updated>2020-07-20T07:51:05.992Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://newbienote.github.io/"/>
     <link rel="self" href="https://newbienote.github.io/atom.xml"/>
@@ -11,23 +11,16 @@
     <icon>https://newbienote.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Newbie Note</rights>
     <entry>
-        <title type="html"><![CDATA[二、HTML结构]]></title>
-        <id>https://newbienote.github.io/post/html-jie-gou/</id>
-        <link href="https://newbienote.github.io/post/html-jie-gou/">
+        <title type="html"><![CDATA[影视专栏]]></title>
+        <id>https://newbienote.github.io/ying-shi-zhuan-lan/</id>
+        <link href="https://newbienote.github.io/ying-shi-zhuan-lan/">
         </link>
-        <updated>2020-07-01T04:51:59.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一、HTML简介]]></title>
-        <id>https://newbienote.github.io/post/html-jian-jie/</id>
-        <link href="https://newbienote.github.io/post/html-jian-jie/">
-        </link>
-        <updated>2020-07-01T04:03:47.000Z</updated>
+        <updated>2020-07-20T07:07:47.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[系统还原]]></title>
-        <id>https://newbienote.github.io/post/系统还原/</id>
-        <link href="https://newbienote.github.io/post/系统还原/">
+        <id>https://newbienote.github.io/系统还原/</id>
+        <link href="https://newbienote.github.io/系统还原/">
         </link>
         <updated>2020-06-28T16:00:00.000Z</updated>
     </entry>
