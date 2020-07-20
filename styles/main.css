@@ -2119,14 +2119,14 @@ body {
         margin: 0 auto;
       }
     @font-face {
-      font-family: '苏新诗柳楷简';
-      src: url('/media/fonts/苏新诗柳楷简.ttf');
+      font-family: '华文新魏';
+      src: url('/media/fonts/华文新魏.ttf');
     }
     * {
-        font-family: '苏新诗柳楷简';
+        font-family: '华文新魏';
     }
     .post-body {
-      font-size: 17px !important
+      font-size: 18px !important
     }
     body {
       color: #555;
