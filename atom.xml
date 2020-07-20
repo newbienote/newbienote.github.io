@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://1f3tsn.coding-pages.com</id>
+    <id>http://newbienote.github.io/</id>
     <title>Newbie Note</title>
-    <updated>2020-07-20T13:35:53.265Z</updated>
+    <updated>2020-07-20T13:50:19.803Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://1f3tsn.coding-pages.com"/>
-    <link rel="self" href="https://1f3tsn.coding-pages.com/atom.xml"/>
+    <link rel="alternate" href="http://newbienote.github.io/"/>
+    <link rel="self" href="http://newbienote.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://1f3tsn.coding-pages.com/images/avatar.png</logo>
-    <icon>https://1f3tsn.coding-pages.com/favicon.ico</icon>
+    <logo>http://newbienote.github.io/images/avatar.png</logo>
+    <icon>http://newbienote.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Newbie Note</rights>
     <entry>
         <title type="html"><![CDATA[影视专栏]]></title>
-        <id>https://1f3tsn.coding-pages.com/ying-shi-zhuan-lan/</id>
-        <link href="https://1f3tsn.coding-pages.com/ying-shi-zhuan-lan/">
+        <id>http://newbienote.github.io/ying-shi-zhuan-lan/</id>
+        <link href="http://newbienote.github.io/ying-shi-zhuan-lan/">
         </link>
         <updated>2020-07-20T07:07:47.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[系统还原]]></title>
-        <id>https://1f3tsn.coding-pages.com/系统还原/</id>
-        <link href="https://1f3tsn.coding-pages.com/系统还原/">
+        <id>http://newbienote.github.io/系统还原/</id>
+        <link href="http://newbienote.github.io/系统还原/">
         </link>
         <updated>2020-06-28T16:00:00.000Z</updated>
     </entry>
