@@ -2124,7 +2124,11 @@ body {
     }
     * {
         font-family: '苏新诗柳楷简';
-    }body {
+    }
+    .post-body {
+      font-size: 17px !important
+    }
+    body {
       color: #555;
     }
     .next-md-body {
