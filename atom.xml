@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://newbienote.com</id>
+    <id>http://newbienote.com</id>
     <title>Newbie Note</title>
-    <updated>2020-07-20T12:50:49.475Z</updated>
+    <updated>2020-07-20T12:53:15.315Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://newbienote.com"/>
-    <link rel="self" href="https://newbienote.com/atom.xml"/>
+    <link rel="alternate" href="http://newbienote.com"/>
+    <link rel="self" href="http://newbienote.com/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://newbienote.com/images/avatar.png</logo>
-    <icon>https://newbienote.com/favicon.ico</icon>
+    <logo>http://newbienote.com/images/avatar.png</logo>
+    <icon>http://newbienote.com/favicon.ico</icon>
     <rights>All rights reserved 2020, Newbie Note</rights>
     <entry>
         <title type="html"><![CDATA[影视专栏]]></title>
-        <id>https://newbienote.com/ying-shi-zhuan-lan/</id>
-        <link href="https://newbienote.com/ying-shi-zhuan-lan/">
+        <id>http://newbienote.com/ying-shi-zhuan-lan/</id>
+        <link href="http://newbienote.com/ying-shi-zhuan-lan/">
         </link>
         <updated>2020-07-20T07:07:47.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[系统还原]]></title>
-        <id>https://newbienote.com/系统还原/</id>
-        <link href="https://newbienote.com/系统还原/">
+        <id>http://newbienote.com/系统还原/</id>
+        <link href="http://newbienote.com/系统还原/">
         </link>
         <updated>2020-06-28T16:00:00.000Z</updated>
     </entry>
