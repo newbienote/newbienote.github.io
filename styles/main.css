@@ -2244,7 +2244,7 @@ body {
     }.box-scale > #landlord {
       transform: scale(1);
     }.box-shadow-wrapper {
-      box-shadow: none !important;
+      padding: 10px;
     }body {
       cursor: default;
     }a {
